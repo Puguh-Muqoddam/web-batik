@@ -1,0 +1,8 @@
+{
+  "name": "Jejak Jetis v2",
+  "description": "Tourism homepage for Heritage Site Kampoeng Batik Jetis Sidoarjo featuring language options, a ribbon menu, and historical showcases.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
