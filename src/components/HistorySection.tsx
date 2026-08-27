@@ -2,6 +2,8 @@ import React from 'react';
 import { History, Quote } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../translations';
+import historyImg1 from '../assets/images/2.png';
+import historyImg2 from '../assets/images/4.png';
 
 interface HistorySectionProps {
   lang: Language;
@@ -79,13 +81,10 @@ export default function HistorySection({ lang }: HistorySectionProps) {
           <div className="lg:col-span-5 space-y-4">
             <div className="relative rounded-2xl overflow-hidden shadow-lg border-4 border-white">
               <img
-                src="/src/assets/images/jetis_artisan_detail_1784011633935.jpg"
+                src={historyImg1}
                 alt="Pengrajin Batik Tulis Jetis Mencanting"
                 referrerPolicy="no-referrer"
                 className="w-full h-80 sm:h-96 object-cover hover:scale-105 transition-transform duration-700"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=800&auto=format&fit=crop&q=80";
-                }}
               />
               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5 text-white">
                 <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-amber-300">
@@ -101,13 +100,10 @@ export default function HistorySection({ lang }: HistorySectionProps) {
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-xl overflow-hidden border-2 border-white shadow-sm bg-stone-100">
                 <img
-                  src="/src/assets/images/jetis_batik_textiles_1784011646807.jpg"
+                  src={historyImg2}
                   alt="Kain Batik Kuno Jetis"
                   referrerPolicy="no-referrer"
                   className="w-full h-28 object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&auto=format&fit=crop&q=80";
-                  }}
                 />
               </div>
               <div className="bg-white p-3.5 rounded-xl border border-stone-200/80 flex flex-col justify-center">

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Map, MapPin, Navigation, Compass, ExternalLink, Car, Train, Landmark, Sparkles, Footprints, Info } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../translations';
+import mapImg from '../assets/images/6.png';
 
 interface MapSectionProps {
   lang: Language;
@@ -227,76 +228,13 @@ export default function MapSection({ lang }: MapSectionProps) {
                 </div>
               </div>
             ) : (
-              /* Custom Schematic Map */
-              <div className="w-full h-full relative bg-[#f7f3ec] p-6 flex flex-col justify-between overflow-hidden select-none min-h-[480px] lg:min-h-[560px]">
-                
-                {/* Background Grid Pattern */}
-                <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#d6c7b2" strokeWidth="1" />
-                    </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#grid)" />
-                </svg>
-
-                {/* Schematic Pathways */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  {/* Outer Main Road (Jl. Diponegoro) */}
-                  <path d="M 5 95 L 30 75 L 85 75 L 95 85" stroke="#cbd5e1" strokeWidth="3.5" fill="none" strokeLinecap="round" />
-                  {/* Primary Walking Trail */}
-                  <path d="M 20 78 L 48 56 L 54 72 L 75 32 L 32 35" stroke="#8c2d19" strokeWidth="2" strokeDasharray="3 2" fill="none" />
-                  {/* Transit Corridor to Station */}
-                  <path d="M 32 35 L 14 18" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="2 2" fill="none" />
-                </svg>
-
-                {/* Map Tag */}
-                <div className="relative z-10 flex justify-between items-start">
-                  <div className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-stone-200 shadow-xs">
-                    <span className="text-[10px] font-mono font-bold uppercase text-heritage-terracotta">
-                      {lang === 'id' ? 'PETA RUTE KAMPUNG BATIK JETIS' : 'JETIS HERITAGE ROUTE MAP'}
-                    </span>
-                  </div>
-                  <div className="text-[10px] font-mono font-bold bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md border border-amber-200">
-                    {lang === 'id' ? 'Klik Titik Marker' : 'Click Pinpoint'}
-                  </div>
-                </div>
-
-                {/* Markers */}
-                <div className="absolute inset-0">
-                  {customMarkers.map((marker) => {
-                    const isSelected = selectedMarkerId === marker.id;
-                    const Icon = marker.icon;
-
-                    return (
-                      <button
-                        key={marker.id}
-                        onClick={() => setSelectedMarkerId(marker.id)}
-                        style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
-                        className={`absolute transform -translate-x-1/2 -translate-y-1/2 group transition-all duration-200 z-20 cursor-pointer ${
-                          isSelected ? 'scale-125 z-30' : 'hover:scale-110'
-                        }`}
-                        id={`map-marker-${marker.id}`}
-                      >
-                        <div
-                          className={`w-9 h-9 rounded-full flex items-center justify-center shadow-lg border-2 border-white transition-all ${
-                            isSelected ? 'ring-4 ring-amber-400 scale-110' : ''
-                          }`}
-                          style={{ backgroundColor: marker.color }}
-                        >
-                          <Icon className="w-4 h-4 text-white" />
-                        </div>
-
-                        <div className={`absolute left-1/2 -translate-x-1/2 top-10 whitespace-nowrap bg-stone-900 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-md pointer-events-none transition-opacity ${
-                          isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                        }`}>
-                          {marker.name[lang]}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-
+              /* Custom Static Image Map */
+              <div className="w-full h-full relative bg-[#f7f3ec] overflow-hidden select-none min-h-[480px] lg:min-h-[560px] flex items-center justify-center">
+                <img 
+                  src={mapImg} 
+                  alt="Peta Wisata Jetis" 
+                  className="w-full h-full object-cover sm:object-contain"
+                />
               </div>
             )}
 
