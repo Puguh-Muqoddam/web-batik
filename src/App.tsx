@@ -9,6 +9,7 @@ import PartnersSection from './components/PartnersSection';
 import UmkmSection from './components/UmkmSection';
 import ContactSection from './components/ContactSection';
 import BookingModal from './components/BookingModal';
+import SignageSection from './components/SignageSection';
 import { Language } from './types';
 import { Ticket } from 'lucide-react';
 
@@ -111,6 +112,9 @@ export default function App() {
           lang={lang}
           onOpenBooking={() => handleOpenBooking()}
         />
+
+        {/* Section 6.5: Signage Gallery */}
+        <SignageSection lang={lang} />
 
         {/* Section 7: Contact & Social Media (Phone, Gmail, Instagram, TikTok, Address, hours, message box) */}
         <ContactSection lang={lang} />
