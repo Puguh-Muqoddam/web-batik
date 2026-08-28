@@ -2,6 +2,7 @@ import React from 'react';
 import { Globe } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../translations';
+import logoImg from '../assets/images/logo_asli.jpg';
 
 interface HeaderProps {
   lang: Language;
@@ -10,7 +11,6 @@ interface HeaderProps {
 }
 
 export default function Header({ lang, setLang, onOpenBooking }: HeaderProps) {
-  const logoUrl = "/src/assets/images/logo_asli.jpg";
   const t = translations[lang];
 
   return (
@@ -21,7 +21,7 @@ export default function Header({ lang, setLang, onOpenBooking }: HeaderProps) {
         <div className="flex items-center gap-3.5" id="header-brand-container">
           <div className="relative shrink-0">
             <img
-              src={logoUrl}
+              src={logoImg}
               alt="Logo Batik Jetas Jetis"
               referrerPolicy="no-referrer"
               className="w-12 h-12 rounded-full border-2 border-heritage-terracotta object-cover shadow-sm"
