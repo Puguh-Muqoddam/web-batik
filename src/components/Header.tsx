@@ -10,7 +10,7 @@ interface HeaderProps {
 }
 
 export default function Header({ lang, setLang, onOpenBooking }: HeaderProps) {
-  const logoUrl = "/src/assets/images/jetis_logo_icon_1784011619168.jpg";
+  const logoUrl = "/src/assets/images/logo_asli.jpg";
   const t = translations[lang];
 
   return (
