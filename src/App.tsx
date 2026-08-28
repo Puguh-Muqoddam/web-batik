@@ -68,7 +68,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-heritage-cream text-stone-800 flex flex-col font-sans selection:bg-heritage-terracotta selection:text-white smooth-scroll" id="app-root-container">
       
-      {/* 1. Header (Logo, JEJAK JETIS, Subtitle, Language Switcher) */}
+      {/* 1. Header (Logo, BATIK JETAS JETIS, Subtitle, Language Switcher) */}
       <Header
         lang={lang}
         setLang={setLang}
@@ -85,7 +85,7 @@ export default function App() {
       {/* 3. Main Content Flow (Top to Bottom as specified) */}
       <main className="flex-grow" id="main-content-flow">
         
-        {/* Section 1: Hero Section (JEJAK JETIS Heritage Site, Solid color + Transparent gradient to right with 3 photo cycle, TikTok, Instagram, Beli Tiket) */}
+        {/* Section 1: Hero Section (BATIK JETAS JETIS Heritage Site, Solid color + Transparent gradient to right with 3 photo cycle, TikTok, Instagram, Beli Tiket) */}
         <HeroSection
           lang={lang}
           onOpenBooking={() => handleOpenBooking()}

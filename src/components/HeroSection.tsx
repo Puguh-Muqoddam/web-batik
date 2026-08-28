@@ -112,7 +112,7 @@ export default function HeroSection({ lang, onOpenBooking }: HeroSectionProps) {
           {/* Big Bold Titles */}
           <div className="space-y-2">
             <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white drop-shadow-md leading-none" id="hero-main-title">
-              JEJAK JETIS
+              BATIK JETAS JETIS
             </h1>
             <p className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-amber-200 drop-shadow-sm leading-snug" id="hero-main-subtitle">
               Heritage Site Kampung Batik Jetis Sidoarjo

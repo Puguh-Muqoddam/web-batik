@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Map, MapPin, Navigation, Compass, ExternalLink, Car, Train, Landmark, Sparkles, Footprints, Info } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../translations';
-import mapImg from '../assets/images/6.png';
+import mapImg from '../assets/images/Peta wisata.png';
 
 interface MapSectionProps {
   lang: Language;

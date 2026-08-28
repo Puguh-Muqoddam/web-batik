@@ -2,8 +2,8 @@ import React from 'react';
 import { History, Quote } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../translations';
-import historyImg1 from '../assets/images/2.png';
-import historyImg2 from '../assets/images/4.png';
+import historyImg1 from '../assets/images/Sejarah kampung batik.png';
+import historyImg2 from '../assets/images/Sejarah kampung batik.png';
 
 interface HistorySectionProps {
   lang: Language;

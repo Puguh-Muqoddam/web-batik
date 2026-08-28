@@ -197,7 +197,7 @@ export default function BookingModal({ isOpen, onClose, lang }: BookingModalProp
     if (!generatedTicket) return;
     const originText = generatedTicket.isFromOutsideSidoarjo ? 'Luar Sidoarjo' : 'Warga Sidoarjo';
     const text = encodeURIComponent(
-      `Halo! Saya telah memesan Tiket Wisata Jejak Jetis Sidoarjo.\n\nKode Tiket: ${generatedTicket.ticketCode}\nNama: ${generatedTicket.fullName}\nStatus: ${originText}\nSesi: ${generatedTicket.sessionTime}\nTanggal: ${generatedTicket.tourDate} (Weekend)\nJumlah: ${generatedTicket.visitorCount} Wisatawan\nKupon Busana (Rp 30rb): ${generatedTicket.fashionCouponCode}\nKupon Kuliner (Rp 5rb): ${generatedTicket.fnbCouponCode}\n\nTerima kasih!`
+      `Halo! Saya telah memesan Tiket Wisata Batik Jetas Jetis Sidoarjo.\n\nKode Tiket: ${generatedTicket.ticketCode}\nNama: ${generatedTicket.fullName}\nStatus: ${originText}\nSesi: ${generatedTicket.sessionTime}\nTanggal: ${generatedTicket.tourDate} (Weekend)\nJumlah: ${generatedTicket.visitorCount} Wisatawan\nKupon Busana (Rp 30rb): ${generatedTicket.fashionCouponCode}\nKupon Kuliner (Rp 5rb): ${generatedTicket.fnbCouponCode}\n\nTerima kasih!`
     );
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };
@@ -652,7 +652,7 @@ export default function BookingModal({ isOpen, onClose, lang }: BookingModalProp
                 <div className="flex items-center justify-between border-b border-stone-200 pb-3 mb-4">
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-heritage-terracotta" />
-                    <span className="font-serif font-black text-base text-heritage-dark">JEJAK JETIS</span>
+                    <span className="font-serif font-black text-base text-heritage-dark">BATIK JETAS JETIS</span>
                   </div>
                   <span className="font-mono text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full border border-emerald-300 uppercase">
                     {t.statusPaid}

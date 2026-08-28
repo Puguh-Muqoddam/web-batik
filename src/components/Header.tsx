@@ -17,12 +17,12 @@ export default function Header({ lang, setLang, onOpenBooking }: HeaderProps) {
     <header className="bg-heritage-cream/95 backdrop-blur-md border-b border-stone-200 sticky top-0 z-50 shadow-xs" id="main-header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         
-        {/* Brand Zone: Logo + JEJAK JETIS + Subtitle (One cohesive brand identity) */}
+        {/* Brand Zone: Logo + BATIK JETAS JETIS + Subtitle (One cohesive brand identity) */}
         <div className="flex items-center gap-3.5" id="header-brand-container">
           <div className="relative shrink-0">
             <img
               src={logoUrl}
-              alt="Logo Jejak Jetis"
+              alt="Logo Batik Jetas Jetis"
               referrerPolicy="no-referrer"
               className="w-12 h-12 rounded-full border-2 border-heritage-terracotta object-cover shadow-sm"
               id="header-logo-img"
@@ -33,7 +33,7 @@ export default function Header({ lang, setLang, onOpenBooking }: HeaderProps) {
           </div>
           <div className="flex flex-col">
             <div className="font-serif text-2xl sm:text-3xl font-black tracking-tight text-heritage-dark leading-none" id="header-title">
-              JEJAK JETIS
+              BATIK JETAS JETIS
             </div>
             <div className="text-[11px] sm:text-xs font-serif font-bold text-heritage-terracotta tracking-normal mt-0.5" id="header-subtitle">
               {t.subtitle}

@@ -257,8 +257,8 @@ export default function ContactSection({ lang }: ContactSectionProps) {
                 </h4>
                 <p className="text-xs text-stone-300 max-w-sm mx-auto leading-relaxed">
                   {lang === 'id'
-                    ? `Terima kasih Bapak/Ibu ${formState.name}. Tim sekretariat Jejak Jetis akan membalas melalui WhatsApp / Email (${formState.email}) segera.`
-                    : `Thank you ${formState.name}. The Jejak Jetis secretariat team will reply via WhatsApp / Email (${formState.email}) shortly.`}
+                    ? `Terima kasih Bapak/Ibu ${formState.name}. Tim sekretariat Batik Jetas Jetis akan membalas melalui WhatsApp / Email (${formState.email}) segera.`
+                    : `Thank you ${formState.name}. The Batik Jetas Jetis secretariat team will reply via WhatsApp / Email (${formState.email}) shortly.`}
                 </p>
                 <button
                   onClick={() => {
@@ -279,7 +279,7 @@ export default function ContactSection({ lang }: ContactSectionProps) {
         {/* Bottom Copyright bar */}
         <div className="mt-16 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-stone-500">
           <div>
-            © {new Date().getFullYear()} JEJAK JETIS • {lang === 'id' ? 'Cagar Budaya Kampung Batik Jetis Sidoarjo' : 'Kampung Batik Jetis Sidoarjo Heritage'}
+            © {new Date().getFullYear()} BATIK JETAS JETIS • {lang === 'id' ? 'Cagar Budaya Kampung Batik Jetis Sidoarjo' : 'Kampung Batik Jetis Sidoarjo Heritage'}
           </div>
           <div className="text-[11px] text-stone-400">
             {lang === 'id' ? 'Dilindungi Undang-Undang Cagar Budaya & Hak Cipta Tradisional' : 'Protected under Heritage Cultural Conservation'}

@@ -2,7 +2,7 @@ import { TranslationDict, MotifItem, ActivityRow, UmkmStore, PartnerOrg, TourSes
 
 export const translations: Record<'id' | 'en', TranslationDict> = {
   id: {
-    siteName: "JEJAK JETIS",
+    siteName: "BATIK JETAS JETIS",
     subtitle: "Kampung Wisata Batik Jetis Sidoarjo",
     bookTicketBtn: "Beli Tiket Wisata",
 
@@ -18,7 +18,7 @@ export const translations: Record<'id' | 'en', TranslationDict> = {
 
     hero: {
       badge: "Situs Warisan Cagar Budaya Sidoarjo",
-      title: "JEJAK JETIS",
+      title: "BATIK JETAS JETIS",
       subtitle: "Heritage Site Kampung Batik Jetis Sidoarjo",
       description: "Menelusuri jejak tradisi membatik tulis tertua di Sidoarjo yang lestari sejak abad ke-17. Nikmati kehangatan corak merah sardo, filosofi luhur, dan keramahan para maestro pengrajin lokal.",
       ctaButton: "Beli Tiket Wisata",
@@ -80,7 +80,7 @@ export const translations: Record<'id' | 'en', TranslationDict> = {
       badge: "Kolaborasi & Dukungan",
       title: "Mitra Kerjasama",
       subtitle: "Didukung oleh instansi pemerintah, lembaga pelestarian kebudayaan, akademisi, dan asosiasi pengrajin nasional.",
-      partnershipNote: "Jejak Jetis terus bersinergi bersama berbagai pihak untuk pelestarian warisan budaya takbenda dan kemajuan ekonomi kreatif lokal."
+      partnershipNote: "Batik Jetas Jetis terus bersinergi bersama berbagai pihak untuk pelestarian warisan budaya takbenda dan kemajuan ekonomi kreatif lokal."
     },
 
     contact: {
@@ -127,7 +127,7 @@ export const translations: Record<'id' | 'en', TranslationDict> = {
 
       step2Title: "2. Pembayaran QRIS",
       step2Subtitle: "Pindai kode QRIS di bawah menggunakan m-Banking atau Dompet Digital favorit Anda.",
-      qrisMerchantName: "JEJAK JETIS HERITAGE SIDOARJO",
+      qrisMerchantName: "BATIK JETAS JETIS HERITAGE SIDOARJO",
       qrisNmid: "ID1020268492019",
       scanInstruction: "Buka aplikasi pembayaran (BCA, Mandiri, BRI, GoPay, OVO, Dana, ShopeePay) lalu arahkan kamera ke QR code.",
       timeRemaining: "Batas Waktu Pembayaran",
@@ -136,7 +136,7 @@ export const translations: Record<'id' | 'en', TranslationDict> = {
 
       step3Title: "3. Tiket Digital & Kupon Diskon",
       step3Subtitle: "Pembayaran Anda telah terverifikasi lunas! Simpan e-ticket dan nikmati kupon diskon UMKM Anda.",
-      ticketDetailsTitle: "E-Ticket Resmi Jejak Jetis",
+      ticketDetailsTitle: "E-Ticket Resmi Batik Jetas Jetis",
       ticketCodeLabel: "Kode Tiket",
       statusPaid: "LUNAS / VALID",
       couponsTitle: "Kupon Diskon UMKM Jetis Terlampir",
@@ -152,7 +152,7 @@ export const translations: Record<'id' | 'en', TranslationDict> = {
   },
 
   en: {
-    siteName: "JEJAK JETIS",
+    siteName: "BATIK JETAS JETIS",
     subtitle: "Heritage Site Kampoeng Batik Jetis Sidoarjo",
     bookTicketBtn: "Buy Tour Ticket",
 
@@ -168,7 +168,7 @@ export const translations: Record<'id' | 'en', TranslationDict> = {
 
     hero: {
       badge: "Sidoarjo Cultural Heritage Site",
-      title: "JEJAK JETIS",
+      title: "BATIK JETAS JETIS",
       subtitle: "Heritage Site Kampung Batik Jetis Sidoarjo",
       description: "Tracing the legacy of Sidoarjo's oldest hand-drawn batik craftsmanship thriving since the 17th century. Experience vivid sardo red dyes, noble cultural philosophies, and warm local artisans.",
       ctaButton: "Buy Tour Ticket",
@@ -230,7 +230,7 @@ export const translations: Record<'id' | 'en', TranslationDict> = {
       badge: "Collaborations",
       title: "Institutional Partners",
       subtitle: "Supported by government agencies, cultural conservation bodies, academic universities, and artisan associations.",
-      partnershipNote: "Jejak Jetis actively collaborates with cross-sector partners to safeguard intangible heritage and empower local artisans."
+      partnershipNote: "Batik Jetas Jetis actively collaborates with cross-sector partners to safeguard intangible heritage and empower local artisans."
     },
 
     contact: {
@@ -277,7 +277,7 @@ export const translations: Record<'id' | 'en', TranslationDict> = {
 
       step2Title: "2. QRIS Payment",
       step2Subtitle: "Scan the official QRIS barcode below using your favorite banking app or e-wallet.",
-      qrisMerchantName: "JEJAK JETIS HERITAGE SIDOARJO",
+      qrisMerchantName: "BATIK JETAS JETIS HERITAGE SIDOARJO",
       qrisNmid: "ID1020268492019",
       scanInstruction: "Open your payment app (BCA, Mandiri, BRI, GoPay, OVO, Dana, ShopeePay) and aim camera at the QR code.",
       timeRemaining: "Payment Time Limit",
@@ -286,7 +286,7 @@ export const translations: Record<'id' | 'en', TranslationDict> = {
 
       step3Title: "3. Digital E-Ticket & Discount Coupons",
       step3Subtitle: "Payment verified successfully! Save your e-ticket and enjoy your exclusive UMKM discount vouchers.",
-      ticketDetailsTitle: "Official Jejak Jetis E-Ticket",
+      ticketDetailsTitle: "Official Batik Jetas Jetis E-Ticket",
       ticketCodeLabel: "Ticket Code",
       statusPaid: "PAID / VALID",
       couponsTitle: "Attached Jetis UMKM Discount Coupons",
