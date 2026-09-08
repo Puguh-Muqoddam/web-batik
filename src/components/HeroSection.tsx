@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Ticket, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../translations';
+import imgBatik1 from '../assets/images/Batik1.jpeg';
+import imgBatik2 from '../assets/images/batik2.jpeg';
+import imgKuburan1 from '../assets/images/kuburan1.jpeg';
 
 // Simple custom SVG icons for Instagram and TikTok for sharp anti-slop rendering
 function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -31,18 +34,18 @@ export default function HeroSection({ lang, onOpenBooking }: HeroSectionProps) {
   // 3 Photos to cycle through as requested
   const heroImages = [
     {
-      url: "/src/assets/images/jetis_hero_banner_1784011605181.jpg",
-      caption: lang === 'id' ? 'Gapura Pusaka & Suasana Kampung Jetis' : 'Iconic Heritage Gate & Jetis Alley',
+      url: imgBatik1,
+      caption: lang === 'id' ? 'Proses Membatik' : 'Batik Process',
       fallback: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1600&auto=format&fit=crop&q=80"
     },
     {
-      url: "/src/assets/images/jetis_artisan_detail_1784011633935.jpg",
-      caption: lang === 'id' ? 'Maestro Pengrajin Mencanting Malam Panas' : 'Master Artisan Drawing Traditional Hot Wax',
+      url: imgBatik2,
+      caption: lang === 'id' ? 'Kain Batik Jetis' : 'Jetis Batik Fabric',
       fallback: "https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=1600&auto=format&fit=crop&q=80"
     },
     {
-      url: "/src/assets/images/jetis_batik_textiles_1784011646807.jpg",
-      caption: lang === 'id' ? 'Kain Batik Tulis Sidoarjo Warna Merah Sardo' : 'Fine Sidoarjo Batik Fabrics with Sardo Red Dyes',
+      url: imgKuburan1,
+      caption: lang === 'id' ? 'Situs Bersejarah' : 'Historical Site',
       fallback: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1600&auto=format&fit=crop&q=80"
     }
   ];
