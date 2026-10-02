@@ -1,245 +1,300 @@
+// ============================================================
+// Type definitions for Website Jejak Jetis
+// All table interfaces + component prop types
+// ============================================================
+
 export type Language = 'id' | 'en';
 
-export interface MotifItem {
-  id: string;
-  name: { id: string; en: string };
-  meaning: { id: string; en: string };
-  category: { id: string; en: string };
-  accentColor: string;
-  badgeBg: string;
-  iconName: string;
-  patternType: string;
-}
+// ── Database Table Interfaces ──────────────────────────────
 
-export interface ActivityRow {
+/** packages table — Tour packages from Supabase */
+export interface Package {
   id: string;
-  title: { id: string; en: string };
-  subtitle: { id: string; en: string };
-  description: { id: string; en: string };
+  name_id: string;
+  name_en: string;
+  description_id: string;
+  description_en: string;
+  price: number;
   duration: string;
   capacity: string;
-  highlights: { id: string[]; en: string[] };
-  iconName: string;
-  imageUrl: string;
-  pricePerPerson: number;
+  image_url: string | null;
+  is_active: boolean;
+  sort_order: number;
+  created_at: string;
 }
 
-export interface UmkmStore {
+/** bookings table — Visitor booking records */
+export interface Booking {
   id: string;
-  name: string;
-  owner: string;
-  category: 'fashion' | 'craft' | 'fnb' | 'fabric';
-  categoryLabel: { id: string; en: string };
-  address: string;
-  phone: string;
-  instagram: string;
-  description: { id: string; en: string };
-  couponAcceptance: { id: string; en: string };
-  featuredBadge?: { id: string; en: string };
+  package_id: string;
+  full_name: string;
+  email: string;
+  whatsapp: string;
+  visit_date: string;
+  session: 'pagi' | 'siang' | 'sore';
+  visitor_count: number;
+  total_price: number;
+  status: 'pending' | 'paid' | 'cancelled' | 'expired';
+  ticket_code: string | null;
+  coupon_fashion: string | null;
+  coupon_fnb: string | null;
+  created_at: string;
 }
 
-export interface PartnerOrg {
+/** payments table — Payment tracking */
+export interface Payment {
   id: string;
-  name: string;
-  role: { id: string; en: string };
-  category: 'government' | 'academic' | 'finance' | 'community';
-  logoPlaceholderText: string;
-  logoColor: string;
+  booking_id: string;
+  midtrans_order_id: string | null;
+  payment_type: 'qris' | 'bank_transfer' | 'ewallet' | null;
+  gross_amount: number;
+  status: 'pending' | 'settlement' | 'expire' | 'cancel';
+  qris_url: string | null;
+  paid_at: string | null;
+  created_at: string;
 }
 
-export interface TourSession {
-  id: 'pagi' | 'siang' | 'sore';
-  name: { id: string; en: string };
-  time: string;
-  slotsRemaining: number;
-  description: { id: string; en: string };
+/** events table — Community events */
+export interface Event {
+  id: string;
+  title_id: string;
+  title_en: string | null;
+  description_id: string | null;
+  description_en: string | null;
+  event_date: string | null;
+  image_url: string | null;
+  is_active: boolean;
+  created_at: string;
 }
+
+/** gallery table — Photo gallery items */
+export interface GalleryItem {
+  id: string;
+  image_url: string;
+  caption_id: string | null;
+  caption_en: string | null;
+  category: 'general' | 'batik' | 'artisan' | 'event';
+  sort_order: number;
+  created_at: string;
+}
+
+/** faq table — FAQ items */
+export interface FaqItem {
+  id: string;
+  question_id: string;
+  question_en: string | null;
+  answer_id: string;
+  answer_en: string | null;
+  sort_order: number;
+  created_at: string;
+}
+
+/** settings table — Site-wide key-value config */
+export interface Setting {
+  id: string;
+  key: string;
+  value_id: string | null;
+  value_en: string | null;
+  updated_at: string;
+}
+
+// ── Component Prop Interfaces ──────────────────────────────
+
+export interface SectionProps {
+  lang: Language;
+}
+
+export interface HeaderProps {
+  lang: Language;
+  setLang: (lang: Language) => void;
+  onOpenBooking: () => void;
+  activeSection: string;
+  onSelectSection: (id: string) => void;
+}
+
+export interface HeroProps extends SectionProps {
+  onOpenBooking: () => void;
+}
+
+export interface ActivitiesProps extends SectionProps {
+  onOpenBooking: (packageId?: string) => void;
+}
+
+export interface BookingSectionProps extends SectionProps {
+  onOpenBooking: (packageId?: string) => void;
+}
+
+export interface BookingModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  lang: Language;
+  preselectedPackageId?: string;
+}
+
+// ── Booking Form Data ──────────────────────────────────────
 
 export interface BookingFormData {
+  packageId: string;
   session: 'pagi' | 'siang' | 'sore';
-  date: string;
+  visitDate: string;
   fullName: string;
-  isFromOutsideSidoarjo: boolean;
-  cityOrigin: string;
-  phoneNumber: string;
   email: string;
+  whatsapp: string;
   visitorCount: number;
-  unitPrice: number;
 }
+
+// ── Digital Ticket ─────────────────────────────────────────
 
 export interface DigitalTicket {
   ticketCode: string;
   bookingDate: string;
   tourDate: string;
   session: 'pagi' | 'siang' | 'sore';
-  sessionTime: string;
   fullName: string;
-  isFromOutsideSidoarjo: boolean;
-  cityOrigin: string;
   visitorCount: number;
   totalPaid: number;
-  qrPayload: string;
   fashionCouponCode: string;
   fnbCouponCode: string;
-  fashionCouponValue: number;
-  fnbCouponValue: number;
 }
+
+// ── Translation Dict ───────────────────────────────────────
 
 export interface TranslationDict {
   siteName: string;
-  subtitle: string;
+  siteTagline: string;
   bookTicketBtn: string;
-  
-  // Ribbon Menu
-  menu: {
+
+  // Nav menu
+  nav: {
     home: string;
-    history: string;
+    about: string;
     activities: string;
     map: string;
-    partners: string;
     umkm: string;
     contact: string;
+    gallery: string;
+    booking: string;
+    faq: string;
   };
 
-  // Hero Section
+  // Hero
   hero: {
     badge: string;
+    yearLabel: string;
     title: string;
     subtitle: string;
     description: string;
     ctaButton: string;
-    socialConnect: string;
-    tiktokLabel: string;
-    instagramLabel: string;
   };
 
-  // History Section
-  history: {
+  // About / History
+  about: {
     badge: string;
-    title: string;
-    subtitle: string;
-    storyParagraph1: string;
-    storyParagraph2: string;
-    storyParagraph3: string;
-    quote: string;
-    quoteAuthor: string;
-    motifsRibbonTitle: string;
-    motifsRibbonSubtitle: string;
+    heading: string;
+    subheading: string;
+    paragraph1: string;
+    paragraph2: string;
   };
 
-  // Activities Section
+  // Activities
   activities: {
     badge: string;
-    title: string;
-    subtitle: string;
-    bookThisSession: string;
-    durationLabel: string;
-    capacityLabel: string;
+    heading: string;
+    viewDetail: string;
+    bookBtn: string;
   };
 
-  // Map Section
+  // Story
+  story: {
+    badge: string;
+    paragraph1: string;
+    paragraph2: string;
+    quote: string;
+    quoteAuthor: string;
+  };
+
+  // Gallery
+  gallery: {
+    badge: string;
+    heading: string;
+  };
+
+  // Map
   map: {
     badge: string;
-    title: string;
+    heading: string;
     subtitle: string;
     toggleGoogle: string;
     toggleCustom: string;
-    googleMapNotice: string;
-    customMapNotice: string;
-    legendTitle: string;
-    legendRoute: string;
-    legendKeyLocations: string;
-    legendNearby: string;
-    openInGmaps: string;
   };
 
-  // UMKM Section
+  // UMKM
   umkm: {
     badge: string;
-    title: string;
+    heading: string;
     subtitle: string;
-    filterAll: string;
-    filterFashion: string;
-    filterFabric: string;
-    filterFnb: string;
-    filterCraft: string;
-    couponBadgeText: string;
   };
 
-  // Partners Section
-  partners: {
+  // Booking
+  booking: {
     badge: string;
-    title: string;
+    heading: string;
     subtitle: string;
-    partnershipNote: string;
+    nameLabel: string;
+    emailLabel: string;
+    whatsappLabel: string;
+    packageLabel: string;
+    dateLabel: string;
+    visitorsLabel: string;
+    pricePerPerson: string;
+    totalLabel: string;
+    submitBtn: string;
+    sessionLabel: string;
+    sessionPagi: string;
+    sessionSiang: string;
+    sessionSore: string;
   };
 
-  // Contact Section
+  // FAQ
+  faq: {
+    badge: string;
+    heading: string;
+  };
+
+  // Footer
+  footer: {
+    tagline: string;
+    address: string;
+    whatsapp: string;
+    navTitle: string;
+    hoursTitle: string;
+    hoursValue: string;
+    copyright: string;
+    madeWith: string;
+  };
+
+  // Contact
   contact: {
     badge: string;
-    title: string;
+    heading: string;
     subtitle: string;
-    secretariatTitle: string;
-    addressLabel: string;
-    addressValue: string;
-    phoneLabel: string;
-    phoneValue: string;
-    emailLabel: string;
-    emailValue: string;
-    hoursLabel: string;
-    hoursValue: string;
-    formTitle: string;
-    formSubtitle: string;
-    nameField: string;
-    emailField: string;
-    msgField: string;
-    sendBtn: string;
-    socialTitle: string;
   };
 
-  // Payment & Booking Flow
-  booking: {
+  // Payment modal
+  payment: {
     step1Title: string;
-    step1Subtitle: string;
-    selectSessionLabel: string;
-    footnoteNotice: string;
-    formInfoTitle: string;
-    nameLabel: string;
-    outsideSidoarjoLabel: string;
-    yesOutside: string;
-    noLocal: string;
-    cityOriginLabel: string;
-    phoneLabel: string;
-    emailLabel: string;
-    dateLabel: string;
-    visitorCountLabel: string;
-    maxVisitorsNotice: string;
-    pricePerPersonLabel: string;
-    totalPriceLabel: string;
-    proceedToQrisBtn: string;
-
     step2Title: string;
     step2Subtitle: string;
-    qrisMerchantName: string;
-    qrisNmid: string;
-    scanInstruction: string;
-    timeRemaining: string;
-    simulatedPaymentBtn: string;
-    backBtn: string;
-
     step3Title: string;
     step3Subtitle: string;
-    ticketDetailsTitle: string;
+    scanInstruction: string;
     ticketCodeLabel: string;
     statusPaid: string;
     couponsTitle: string;
-    couponsSubtitle: string;
-    fashionCouponTitle: string;
-    fashionCouponDesc: string;
-    fnbCouponTitle: string;
-    fnbCouponDesc: string;
-    downloadTicketBtn: string;
-    shareWaBtn: string;
+    fashionCoupon: string;
+    fnbCoupon: string;
+    downloadBtn: string;
     finishBtn: string;
+    backBtn: string;
   };
 }

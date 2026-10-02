@@ -1,24 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
+  /* Typography — Framer Design */
+  --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
-  
-  --color-heritage-dark: #1c1917;
-  --color-heritage-terracotta: #8c2d19;
-  --color-heritage-gold: #b45309;
-  --color-heritage-cream: #fdfbf7;
-  --color-heritage-sand: #f5efeb;
-  --color-heritage-wax: #dfa837;
+
+  /* Colors — Framer Heritage Palette */
+  --color-bg-cream: #FAF7F2;
+  --color-bg-sand: #F0EBE3;
+  --color-bg-dark: #1A1510;
+  --color-bg-dark-soft: #2A2520;
+
+  --color-primary-warm: #8B4513;
+  --color-primary-warm-hover: #6D360F;
+  --color-accent-gold: #C4993B;
+  --color-accent-gold-soft: #D4A94B;
+
+  --color-text-heading: #1A1510;
+  --color-text-body: #4A4540;
+  --color-text-muted: #8A8580;
+  --color-text-on-dark: #FAF7F2;
+  --color-text-on-dark-muted: #C5C0B8;
+
+  --color-border-light: #E5E0DA;
+  --color-border-dark: #3A3530;
+
+  /* Legacy compatibility — mapped to new tokens */
+  --color-heritage-dark: #1A1510;
+  --color-heritage-terracotta: #8B4513;
+  --color-heritage-gold: #C4993B;
+  --color-heritage-cream: #FAF7F2;
+  --color-heritage-sand: #F0EBE3;
+  --color-heritage-wax: #D4A94B;
 }
 
-/* Custom fade effects and smooth transitions */
+/* Base reset */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-body);
+  background-color: var(--color-bg-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Heading defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-heading);
+}
+
+/* Smooth scroll */
 .smooth-scroll {
   scroll-behavior: smooth;
 }
 
+/* Marquee animation for motif ribbon */
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
@@ -28,6 +70,7 @@
   animation: marquee 35s linear infinite;
 }
 
+/* Float animation */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -40,4 +83,39 @@
 .animate-float-delayed {
   animation: float 4s ease-in-out infinite;
   animation-delay: 2s;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Section badge styling — Framer pattern */
+.section-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-primary-warm);
+  border: 1px solid var(--color-primary-warm);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+}
+
+.section-badge-light {
+  color: var(--color-accent-gold);
+  border-color: var(--color-accent-gold);
 }

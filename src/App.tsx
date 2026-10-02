@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import RibbonMenu from './components/RibbonMenu';
 import HeroSection from './components/HeroSection';
 import HistorySection from './components/HistorySection';
 import ActivitiesSection from './components/ActivitiesSection';
+import StorySection from './components/StorySection';
+import GallerySection from './components/GallerySection';
 import MapSection from './components/MapSection';
-import PartnersSection from './components/PartnersSection';
 import UmkmSection from './components/UmkmSection';
+import BookingSection from './components/BookingSection';
+import FaqSection from './components/FaqSection';
 import ContactSection from './components/ContactSection';
+import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
 import { Language } from './types';
+import { translations } from './translations';
 import { Ticket } from 'lucide-react';
 
 export default function App() {
@@ -18,14 +22,16 @@ export default function App() {
   
   // Booking Modal State
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [preselectedActivityId, setPreselectedActivityId] = useState<string | undefined>(undefined);
+  const [preselectedPackageId, setPreselectedPackageId] = useState<string | undefined>(undefined);
 
-  // Smooth-scroll helper with offset for sticky header & ribbon
+  const t = translations[lang];
+
+  // Smooth-scroll helper with offset for sticky header
   const handleSelectSection = (sectionId: string) => {
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerOffset = 135;
+      const headerOffset = 90;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
       
@@ -39,8 +45,19 @@ export default function App() {
   // Tracking active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['beranda', 'sejarah', 'kegiatan', 'peta', 'mitra', 'umkm', 'kontak'];
-      const scrollPosition = window.scrollY + 160;
+      const sections = [
+        'beranda',
+        'tentang',
+        'kegiatan',
+        'kisah',
+        'galeri',
+        'peta',
+        'umkm',
+        'pemesanan',
+        'faq',
+        'kontak'
+      ];
+      const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -60,81 +77,86 @@ export default function App() {
   }, []);
 
   // Handle open booking dialog
-  const handleOpenBooking = (activityId?: string) => {
-    setPreselectedActivityId(activityId);
+  const handleOpenBooking = (packageId?: string) => {
+    setPreselectedPackageId(packageId);
     setIsBookingOpen(true);
   };
 
   return (
-    <div className="min-h-screen bg-heritage-cream text-stone-800 flex flex-col font-sans selection:bg-heritage-terracotta selection:text-white smooth-scroll" id="app-root-container">
+    <div className="min-h-screen bg-bg-cream text-text-body flex flex-col font-body selection:bg-primary-warm selection:text-white smooth-scroll" id="app-root-container">
       
-      {/* 1. Header (Logo, BATIK JETAS JETIS, Subtitle, Language Switcher) */}
+      {/* 1. Header (Navbar, Brand, Language Switcher, Action CTA) */}
       <Header
         lang={lang}
         setLang={setLang}
         onOpenBooking={() => handleOpenBooking()}
-      />
-
-      {/* 2. Ribbon Menu (Home, Sejarah, Kegiatan, Peta, Mitra, UMKM, Kontak) */}
-      <RibbonMenu
-        lang={lang}
         activeSection={activeSection}
         onSelectSection={handleSelectSection}
       />
 
-      {/* 3. Main Content Flow (Top to Bottom as specified) */}
+      {/* 2. Main Content Flow */}
       <main className="flex-grow" id="main-content-flow">
-        
-        {/* Section 1: Hero Section (BATIK JETAS JETIS Heritage Site, Solid color + Transparent gradient to right with 3 photo cycle, TikTok, Instagram, Beli Tiket) */}
+        {/* Section 1: Hero */}
         <HeroSection
           lang={lang}
           onOpenBooking={() => handleOpenBooking()}
         />
 
-        {/* Section 2: Sejarah Kampung Jetis (Foto & teks blend + 7 Motifs ribbon scrolling right-to-left with slanted dividers) */}
+        {/* Section 2: Tentang Kami (History) */}
         <HistorySection lang={lang} />
 
-        {/* Section 3: Kegiatan Wisata (Tour Kampung Jetis, Demo Membatik, Wisata Situs Bersejarah, Berbelanja UMKM row-by-row) */}
+        {/* Section 3: Kegiatan Wisata (3 Tour Packages) */}
         <ActivitiesSection
           lang={lang}
-          onOpenBooking={(actId) => handleOpenBooking(actId)}
+          onOpenBooking={(packageId) => handleOpenBooking(packageId)}
         />
 
-        {/* Section 4: Peta Wisata Jetis (Google Maps & Custom Route/Marker Map switchable via Slider toggle) */}
+        {/* Section 4: Kisah Batik (Artisan Story & Quote) */}
+        <StorySection lang={lang} />
+
+        {/* Section 5: Galeri (Photo Showcase) */}
+        <GallerySection lang={lang} />
+
+        {/* Section 6: Peta Wisata (Interactive Map) */}
         <MapSection lang={lang} />
 
-        {/* Section 5: Mitra Kerjasama (Logo Grid) */}
-        <PartnersSection lang={lang} />
+        {/* Section 7: UMKM (Local Businesses) */}
+        <UmkmSection lang={lang} />
 
-        {/* Section 6: UMKM Jetis (Store showcase & coupon discounts info) */}
-        <UmkmSection
+        {/* Section 8: Pemesanan (Inline Booking Form) */}
+        <BookingSection
           lang={lang}
-          onOpenBooking={() => handleOpenBooking()}
+          onOpenBooking={(packageId) => handleOpenBooking(packageId)}
         />
 
-        {/* Section 7: Contact & Social Media (Phone, Gmail, Instagram, TikTok, Address, hours, message box) */}
-        <ContactSection lang={lang} />
+        {/* Section 9: FAQ (Accordion Q&A) */}
+        <FaqSection lang={lang} />
 
+        {/* Section 10: Kontak */}
+        <ContactSection lang={lang} />
       </main>
+
+      {/* 3. Footer */}
+      <Footer lang={lang} />
 
       {/* 4. Complete Booking & QRIS Payment Modal Flow */}
       <BookingModal
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}
         lang={lang}
-        preselectedActivityId={preselectedActivityId}
+        preselectedPackageId={preselectedPackageId}
       />
 
-      {/* 5. Quick Floating "Beli Tiket" Button */}
+      {/* 5. Quick Floating "Pesan Tiket" Button */}
       <div className="fixed bottom-6 right-6 z-40" id="floating-quick-ticket">
         <button
           onClick={() => handleOpenBooking()}
-          className="bg-heritage-terracotta hover:bg-amber-900 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-2 cursor-pointer group"
+          className="bg-primary-warm hover:bg-primary-warm-hover text-bg-cream p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-2 cursor-pointer group"
           id="floating-ticket-btn"
         >
-          <Ticket className="w-5 h-5 text-amber-200 group-hover:rotate-12 transition-transform" />
-          <span className="hidden sm:inline text-xs font-serif font-bold tracking-wide">
-            {lang === 'id' ? 'Beli Tiket (Rp 54rb)' : 'Buy Ticket (Rp 54k)'}
+          <Ticket className="w-5 h-5 text-accent-gold group-hover:rotate-12 transition-transform" />
+          <span className="hidden sm:inline text-xs font-body font-bold tracking-wide">
+            {t.bookTicketBtn}
           </span>
         </button>
       </div>
